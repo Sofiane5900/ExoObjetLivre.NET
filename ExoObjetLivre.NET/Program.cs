@@ -8,45 +8,48 @@ listeLivres.Add(harryPoter);
 listeLivres.Add(lesMisérables);
 listeLivres.Add(leSeigneurDesAnneaux);
 Livre nouveauLivre;
-AjoutLivre();
 
-//while (true)
-//{
-
-foreach (Livre l in listeLivres)
+while (true)
 {
-    AfficherDetails(l);
-}
+    AjoutLivre();
 
-void AjoutLivre()
-{
-    while (true)
+
+    foreach (Livre l in listeLivres)
     {
-        Console.Write("Veuillez écrire le titre du livre : ");
-        string nouveauTitre = Console.ReadLine();
-        Console.Write("Veuillez écrire l'auteur du livre : ");
-        string nouveauAuteur = Console.ReadLine();
-        Console.Write("Veuillez écrire la date de publication du livre : ");
-        int nouveauPublication;
-        bool successPublication = int.TryParse(Console.ReadLine(), out nouveauPublication);
-        if (!successPublication)
+        AfficherDetails(l);
+    }
+
+    void AjoutLivre()
+    {
+        while (true)
         {
-            Console.WriteLine("Veuillez écrire une date valide.");
-        }
-        Console.Write("Voulez vous empruntez ce livre ? : ");
-        bool nouveauEmprunter;
-        bool sucessEmprunter = bool.TryParse(Console.ReadLine(), out nouveauEmprunter);
-        if (!sucessEmprunter)
-        {
-            Console.WriteLine("Veuillez écrire oui ou non.");
-            break;
-        } 
-        else
-        {
-            nouveauLivre = new Livre(nouveauTitre, nouveauAuteur, nouveauPublication, nouveauEmprunter);
-            string disponibilite = nouveauLivre.estEmprunter ? "indisponible" : "disponible";
-            listeLivres.Add(nouveauLivre);
-            break;
+            Console.Write("Veuillez écrire le titre du livre : ");
+            string nouveauTitre = Console.ReadLine();
+            Console.Write("Veuillez écrire l'auteur du livre : ");
+            string nouveauAuteur = Console.ReadLine();
+            Console.Write("Veuillez écrire la date de publication du livre : ");
+            int nouveauPublication;
+            bool successPublication = int.TryParse(Console.ReadLine(), out nouveauPublication);
+            if (!successPublication)
+            {
+                Console.WriteLine("Veuillez écrire une date valide.");
+            }
+            Console.Write("Voulez vous empruntez ce livre ? : ");
+            bool nouveauEmprunter;
+            bool sucessEmprunter = bool.TryParse(Console.ReadLine(), out nouveauEmprunter);
+            if (!sucessEmprunter)
+            {
+                Console.WriteLine("Veuillez écrire oui ou non.");
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                nouveauLivre = new Livre(nouveauTitre, nouveauAuteur, nouveauPublication, nouveauEmprunter);
+                string disponibilite = nouveauLivre.estEmprunter ? "indisponible" : "disponible";
+                listeLivres.Add(nouveauLivre);
+                break;
+            }
         }
     }
 }
