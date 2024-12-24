@@ -39,11 +39,11 @@ namespace ExoObjetLivre.NET
             Console.WriteLine("Indisponible.");
         }
 
-        public void AfficherDetails()
-        {
-            // Opération ternaire pour choisir définir que false ou true = un string conrrespondant
-            string disponibilite = estEmprunter ? "indisponible" : "disponible";
-            Console.WriteLine($"Le livre {Titre}, écrit par {Auteur} en {Publication} est {disponibilite}");
-        }
+        //public void AfficherDetails()
+        //{
+        //    // Opération ternaire pour choisir définir que false ou true = un string conrrespondant
+        //    string disponibilite = estEmprunter ? "indisponible" : "disponible";
+        //    Console.WriteLine($"Le livre {Titre}, écrit par {Auteur} en {Publication} est {disponibilite}");
+        //}
     }
 }
